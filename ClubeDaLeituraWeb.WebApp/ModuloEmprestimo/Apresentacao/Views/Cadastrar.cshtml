@@ -1,0 +1,49 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Registro de Empréstimo";
+}
+
+@using ClubeDaLeituraWeb.WebApp.ModuloEmprestimo.Apresentacao
+@model CadastrarEmprestimoViewModel
+
+<form method="post">
+
+    <p>Total amigos: @ViewBag.TotalAmigos</p>
+    <p>Total revistas: @ViewBag.TotalRevistas</p>
+
+
+    <div class="mb-3">
+        <label class="form-label">Amigo</label>
+
+        <select class="form-select" name="AmigoId" id="AmigoId">
+            <option value="">Selecione um amigo</option>
+
+            @foreach (var amigo in ViewBag.Amigos)
+            {
+                <option value="@amigo.Value">@amigo.Text</option>
+            }
+        </select>
+
+        <span class="text-danger" asp-validation-for="AmigoId"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Revista Disponível</label>
+
+        <select class="form-select" name="RevistaId" id="RevistaId">
+            <option value="">Selecione uma revista</option>
+
+            @foreach (var revista in ViewBag.Revistas)
+            {
+                <option value="@revista.Value">@revista.Text</option>
+            }
+        </select>
+
+        <span class="text-danger" asp-validation-for="RevistaId"></span>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <a class="btn btn-secondary" href="/Emprestimo/Listar">Voltar</a>
+    <button class="btn btn-primary" type="submit">Confirmar</button>
+</form>
