@@ -41,6 +41,7 @@ else
                     <td>@e.DataDevolucaoPrevista.ToString("dd/MM/yyyy")</td>
                     <td>@(e.DataDevolucaoReal?.ToString("dd/MM/yyyy") ?? "-")</td>
                     <td>@e.Status</td>
+
                     <td>
                         @if (e.Status != "Concluido")
                         {

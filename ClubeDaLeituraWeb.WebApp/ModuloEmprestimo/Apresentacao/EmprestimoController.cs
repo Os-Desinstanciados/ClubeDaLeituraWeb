@@ -100,6 +100,43 @@ public class EmprestimoController : Controller
         return RedirectToAction(nameof(Listar));
     }
 
+    [HttpGet]
+    public ActionResult Devolver(string id)
+    {
+        Emprestimo? emprestimo = repositorioEmprestimo.SelecionarPorId(id);
+
+        if (emprestimo == null)
+            return RedirectToAction(nameof(Listar));
+
+        DevolverEmprestimoViewModel vm = new(
+            emprestimo.Id,
+            emprestimo.Amigo!.Nome,
+            emprestimo.Revista!.Titulo,
+            emprestimo.DataEmprestimo,
+            emprestimo.DataDevolucaoPrevista
+        );
+
+        return View(vm);
+    }
+
+    [HttpPost]
+    public ActionResult Devolver(DevolverEmprestimoViewModel vm)
+    {
+        Emprestimo? emprestimo = repositorioEmprestimo.SelecionarPorId(vm.Id);
+
+        if (emprestimo == null)
+            return RedirectToAction(nameof(Listar));
+
+        emprestimo.RegistrarDevolucao();
+
+        repositorioEmprestimo.Editar(emprestimo.Id, emprestimo);
+
+        if (emprestimo.Revista != null)
+            repositorioRevista.Editar(emprestimo.Revista.Id, emprestimo.Revista);
+
+        return RedirectToAction(nameof(Listar));
+    }
+
     private void CarregarAmigos()
     {
         var amigos = repositorioAmigo.SelecionarTodos();

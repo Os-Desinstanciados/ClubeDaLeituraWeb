@@ -21,3 +21,11 @@ public record CadastrarEmprestimoViewModel(
     [Required(ErrorMessage = "O campo \"Revista\" é obrigatório.")]
     string RevistaId
 );
+
+public record DevolverEmprestimoViewModel(
+    string Id,
+    string Amigo,
+    string Revista,
+    DateTime DataEmprestimo,
+    DateTime DataDevolucaoPrevista
+);
