@@ -58,6 +58,17 @@ public class CaixaController : Controller
             cadastrarVm.DiasDeEmprestimo
         );
 
+        bool jaExiste = repositorioCaixa.SelecionarTodos()
+        .Any(c => c.Etiqueta == novaCaixa.Etiqueta);
+
+        if (jaExiste)
+        {
+            
+            ModelState.AddModelError(string.Empty, "Já existe uma caixa cadastrada com esta etiqueta.");
+                       
+            return View(cadastrarVm);
+        }        
+
         repositorioCaixa.Cadastrar(novaCaixa);
 
         return RedirectToAction(nameof(Listar));
