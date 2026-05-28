@@ -1,0 +1,60 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Listagem de Empréstimos";
+}
+
+@using ClubeDaLeituraWeb.WebApp.ModuloEmprestimo.Apresentacao 
+@model List<ListarEmprestimosViewModel>
+
+<a class="btn btn-primary mb-3" href="/Emprestimo/Cadastrar">
+    Registrar Novo Empréstimo
+</a>
+
+@if (Model.Count == 0)
+{
+    <p>Nenhum empréstimo registrado.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Amigo</th>
+                <th>Revista</th>
+                <th>Data Empréstimo</th>
+                <th>Devolução Prevista</th>
+                <th>Devolução Real</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (ListarEmprestimosViewModel e in Model)
+            {
+                string classeLinha = e.EstaAtrasado ? "table-danger" : "";
+
+                <tr class="@classeLinha">
+                    <td>@e.Amigo</td>
+                    <td>@e.Revista</td>
+                    <td>@e.DataEmprestimo.ToString("dd/MM/yyyy")</td>
+                    <td>@e.DataDevolucaoPrevista.ToString("dd/MM/yyyy")</td>
+                    <td>@(e.DataDevolucaoReal?.ToString("dd/MM/yyyy") ?? "-")</td>
+                    <td>@e.Status</td>
+                    <td>
+                        @if (e.Status != "Concluido")
+                        {
+                            <a class="btn btn-success btn-sm" href="/Emprestimo/Devolver/@e.Id">
+                                Registrar Devolução
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Finalizado</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

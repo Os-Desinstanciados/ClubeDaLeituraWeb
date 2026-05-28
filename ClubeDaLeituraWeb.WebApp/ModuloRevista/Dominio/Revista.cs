@@ -9,6 +9,7 @@ public sealed class Revista : EntidadeBase<Revista>
     public int NumeroEdicao { get; set; }
     public DateTime AnoPublicacao { get; set; }
     public Caixa? Caixa { get; set; }
+    public StatusRevista Status { get; set; } = StatusRevista.Disponivel;
 
     public Revista() { }
 
