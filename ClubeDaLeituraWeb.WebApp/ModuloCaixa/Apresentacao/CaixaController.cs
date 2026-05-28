@@ -39,7 +39,7 @@ public class CaixaController : Controller
     {
         CadastrarCaixaViewModel cadastrarVm = new CadastrarCaixaViewModel(
             string.Empty,
-            string.Empty,
+            CorCaixa.Azul, //ainda está dando erro aqui
             7
         );
 

@@ -5,12 +5,12 @@ namespace ClubeDaLeituraWeb.WebApp.ModuloCaixa.Dominio;
 public sealed class Caixa : EntidadeBase<Caixa>
 {
     public string Etiqueta { get; set; } = string.Empty;
-    public string Cor { get; set; } = string.Empty;
+    public CorCaixa Cor { get; set; }
     public int DiasDeEmprestimo { get; set; } = 7;
 
     public Caixa() { }
 
-    public Caixa(string etiqueta, string cor, int diasDeEmprestimo)
+    public Caixa(string etiqueta, CorCaixa cor, int diasDeEmprestimo)
     {
         Etiqueta = etiqueta;
         Cor = cor;
