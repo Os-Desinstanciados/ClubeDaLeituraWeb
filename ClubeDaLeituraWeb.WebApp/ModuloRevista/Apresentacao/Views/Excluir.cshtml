@@ -5,25 +5,34 @@
 
 @model ExcluirRevistaViewModel
 
-<form method="post">
+<form class="card border-primary-subtle shadow-sm mx-auto p-4" style="max-width: 620px;"  asp-action="Excluir" method="post">
     <input type="hidden" asp-for="Id" />
 
     <p>Deseja realmente excluir esta revista?</p>
 
-    <dl>
-        <dt>Título</dt>
-        <dd>@Model.Titulo</dd>
+    <div class="mb-3">
+        <label asp-for="Titulo" class="form-label fw-semibold text-primary text-uppercase small">Titulo</label>
+        <input asp-for="Titulo" type="text" class="form-control" disabled>        
+    </div>
 
-        <dt>Número da Edição</dt>
-        <dd>@Model.NumeroEdicao</dd>
+    <div class="mb-3">
+        <label asp-for="NumeroEdicao" class="form-label fw-semibold text-primary text-uppercase small">Número da Edição</label>
+        <input asp-for="NumeroEdicao" type="text" class="form-control" disabled>        
+    </div>
 
-        <dt>Ano de Publicação</dt>
-        <dd>@Model.AnoPublicacao.ToString("dd/MM/yyyy")</dd>
+    <div class="mb-3">
+        <label asp-for="AnoPublicacao" class="form-label fw-semibold text-primary text-uppercase small">Ano de Publicação</label>
+        <input asp-for="AnoPublicacao" type="text" class="form-control" disabled>        
+    </div>
 
-        <dt>Caixa</dt>
-        <dd>@Model.Caixa</dd>
-    </dl>
+    <div class="mb-3">
+        <label asp-for="Caixa" class="form-label fw-semibold text-primary text-uppercase small">Caixa</label>
+        <input asp-for="Caixa" type="text" class="form-control" disabled>        
+    </div>
 
-    <a class="btn btn-secondary" href="/Revista/Listar">Voltar</a>
-    <button class="btn btn-danger" type="submit">Confirmar</button>
+    <div class="d-flex justify-content-end gap-2 mt-4">
+        <a class="btn btn-outline-primary rounded-pill px-4" asp-action="Listar">Voltar</a>
+        <button class="btn btn-primary rounded-pill px-4" type="submit">Confirmar</button>
+    </div>
+    
 </form>

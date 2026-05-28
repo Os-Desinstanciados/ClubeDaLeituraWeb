@@ -35,8 +35,8 @@ else
                     <td>@r.AnoPublicacao.ToString("dd/MM/yyyy")</td>
                     <td>@r.Caixa</td>
                     <td>
-                        <a class="btn btn-warning btn-sm" href="/Revista/Editar/@r.Id">Editar</a>
-                        <a class="btn btn-danger btn-sm" href="/Revista/Excluir/@r.Id">Excluir</a>
+                        <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Editar" asp-route-id="@r.Id">Editar</a>
+                        <a class="btn btn-outline-primary btn-sm rounded-pill px-3" asp-action="Excluir" asp-route-id="@r.Id">Excluir</a>
                     </td>
                 </tr>
             }
