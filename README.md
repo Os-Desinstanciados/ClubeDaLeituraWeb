@@ -1,4 +1,4 @@
-# Clube da Leitura
+# 📚 Clube da Leitura
 
 Gustavo tem uma coleção grande de revistas em quadrinhos. Por isso, resolveu
 emprestar para os amigos. Assim foi criado o Clube da Leitura.
@@ -7,7 +7,7 @@ Mas para não perder nenhuma revista, seu pai contratou os alunos da Academia do
 Programador para fazer uma aplicação que cadastra as revistas e controla os
 empréstimos.
 
-## 1. Módulo de Caixas
+## 📦 1. Módulo de Caixas
 
 **Requisitos Funcionais:**
 
@@ -16,7 +16,7 @@ empréstimos.
 - O sistema deve permitir excluir caixas
 - O sistema deve permitir visualizar todas as caixas
 
-**Regras de Negócio:**
+📌 **Regras de Negócio:**
 
 - Campos obrigatórios:
 - Etiqueta (texto único, máximo 50 caracteres)
@@ -26,7 +26,7 @@ empréstimos.
 - Não permitir excluir uma caixa caso tenha revistas vinculadas
 - Cada caixa define o prazo máximo para empréstimo de suas revistas
 
-## 2. Módulo de Revistas
+## 📰 2. Módulo de Revistas
 
 **Requisitos Funcionais:**
 
@@ -35,7 +35,7 @@ empréstimos.
 - O sistema deve permitir excluir revistas
 - O sistema deve permitir visualizar todas as revistas
 
-**Regras de Negócio:**
+📌 **Regras de Negócio:**
 
 - Campos obrigatórios:
     - Título (2-100 caracteres)
@@ -44,7 +44,7 @@ empréstimos.
     - Caixa (seleção obrigatória)
 - Não pode haver revistas com mesmo título e edição
 
-## 3. Módulo de Amigos
+## 👥 3. Módulo de Amigos
 
 **Requisitos Funcionais**
 
@@ -53,7 +53,7 @@ empréstimos.
 - O sistema deve permitir excluir amigos já cadastrados
 - O sistema deve permitir visualizar amigos cadastrados
 
-**Regras de Negócio:**
+📌 **Regras de Negócio:**
 
 - Campos obrigatórios:
     - Nome (mínimo 3 caracteres, máximo 100)
@@ -61,15 +61,15 @@ empréstimos.
     - Telefone (formato validado: 10-11 dígitos)
     - Não pode haver amigos com o mesmo nome e telefone
 
-## 4. Módulo de Empréstimos
+## 🔄 4. Módulo de Empréstimos
 
-**Requisitos Funcionais:**
+✅ **Requisitos Funcionais:**
 
 - O sistema deve permitir registrar novos empréstimos
 - O sistema deve permitir registrar devoluções
 - O sistema deve permitir visualizar empréstimos abertos e fechados
 
-**Refatorações:**
+🛠️ **Refatorações:**
 
 **Revistas:**
 
@@ -91,7 +91,7 @@ empréstimos.
 - A data de devolução é calculada automaticamente (data empréstimo + dias da
   caixa)
 
-## Como utilizar
+## 🚀 Como utilizar
 
 1. Clone o repositório ou baixe o código fonte.
 2. Abra o terminal ou o prompt de comando e navegue até a pasta raiz
@@ -107,6 +107,6 @@ empréstimos.
     dotnet run --project ClubeDaLeituraWeb.WebApp
     ```
 
-## Requisitos
+## ⚙️ Requisitos
 
 - .NET 10.0 SDK

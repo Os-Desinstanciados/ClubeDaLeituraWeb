@@ -1,0 +1,35 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Registrar Devolução";
+}
+
+@using ClubeDaLeituraWeb.WebApp.ModuloEmprestimo.Apresentacao
+@model DevolverEmprestimoViewModel
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <p>Deseja registrar a devolução deste empréstimo?</p>
+
+    <dl>
+        <dt>Amigo</dt>
+        <dd>@Model.Amigo</dd>
+
+        <dt>Revista</dt>
+        <dd>@Model.Revista</dd>
+
+        <dt>Data Empréstimo</dt>
+        <dd>@Model.DataEmprestimo.ToString("dd/MM/yyyy")</dd>
+
+        <dt>Data Devolução Prevista</dt>
+        <dd>@Model.DataDevolucaoPrevista.ToString("dd/MM/yyyy")</dd>
+    </dl>
+
+    <a class="btn btn-secondary" href="/Emprestimo/Listar">
+        Voltar
+    </a>
+
+    <button class="btn btn-success" type="submit">
+        Confirmar Devolução
+    </button>
+</form>
