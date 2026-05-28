@@ -58,6 +58,17 @@ public class AmigoController : Controller
             cadastrarVm.Telefone
         );
 
+        bool jaExiste = repositorioAmigo.SelecionarTodos()
+        .Any(a => a.Nome == novoAmigo.Nome && a.Telefone == novoAmigo.Telefone);
+
+        if (jaExiste)
+        {
+            
+            ModelState.AddModelError(string.Empty, "Já existe um amigo cadastrado com este nome e telefone.");
+                       
+            return View(cadastrarVm);
+        }
+
         repositorioAmigo.Cadastrar(novoAmigo);
 
         return RedirectToAction(nameof(Listar));

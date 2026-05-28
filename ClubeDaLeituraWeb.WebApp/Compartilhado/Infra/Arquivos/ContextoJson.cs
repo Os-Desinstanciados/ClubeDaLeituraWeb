@@ -54,5 +54,6 @@ public sealed class ContextoJson
             return;
 
         Caixas = contextoSalvo.Caixas;
+        Amigos = contextoSalvo.Amigos;
     }
 }

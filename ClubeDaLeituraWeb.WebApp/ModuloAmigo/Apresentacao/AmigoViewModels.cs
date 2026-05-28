@@ -14,6 +14,7 @@ public record CadastrarAmigoViewModel(
     [StringLength(100, MinimumLength = 3, ErrorMessage = "O campo \"Nome\" deve conter entre 3 e 100 caracteres.")]
     string Nome,
     
+    [Required(ErrorMessage = "O campo \"Nome do Responsável\" deve ser preenchido.")]
     [StringLength(100, MinimumLength = 3, ErrorMessage = "O campo \"Nome do Responável\" deve conter entre 3 e 100 caracteres.")]
     string NomeResponsavel,
 
@@ -29,6 +30,7 @@ public record EditarAmigoViewModel(
     [StringLength(100, MinimumLength = 3, ErrorMessage = "O campo \"Nome\" deve conter entre 3 e 100 caracteres.")]
     string Nome,
     
+    [Required(ErrorMessage = "O campo \"Nome do Responsável\" deve ser preenchido.")]
     [StringLength(100, MinimumLength = 3, ErrorMessage = "O campo \"Nome do Responável\" deve conter entre 3 e 100 caracteres.")]
     string NomeResponsavel,
 

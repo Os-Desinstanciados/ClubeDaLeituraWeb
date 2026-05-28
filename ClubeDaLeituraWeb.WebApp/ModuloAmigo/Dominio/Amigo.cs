@@ -27,7 +27,10 @@ public sealed class Amigo : EntidadeBase<Amigo>
         else if (Nome.Length < 3 || Nome.Length > 100)
             erros.Add("O campo \"Nome\" deve conter entre 3 e 100 caracteres.");
 
-        if (NomeResponsavel.Length < 3 || NomeResponsavel.Length > 100)
+        if (string.IsNullOrWhiteSpace(NomeResponsavel))
+            erros.Add("O campo \"Nome do Responsável\" deve ser preenchido.");
+
+        else if (NomeResponsavel.Length < 3 || NomeResponsavel.Length > 100)
             erros.Add("O campo \"Nome do Responsável\" deve conter entre 3 e 100 caracteres.");
 
         if (string.IsNullOrWhiteSpace(Telefone))
