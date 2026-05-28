@@ -1,0 +1,29 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Revista";
+}
+
+@model ExcluirRevistaViewModel
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <p>Deseja realmente excluir esta revista?</p>
+
+    <dl>
+        <dt>Título</dt>
+        <dd>@Model.Titulo</dd>
+
+        <dt>Número da Edição</dt>
+        <dd>@Model.NumeroEdicao</dd>
+
+        <dt>Ano de Publicação</dt>
+        <dd>@Model.AnoPublicacao.ToString("dd/MM/yyyy")</dd>
+
+        <dt>Caixa</dt>
+        <dd>@Model.Caixa</dd>
+    </dl>
+
+    <a class="btn btn-secondary" href="/Revista/Listar">Voltar</a>
+    <button class="btn btn-danger" type="submit">Confirmar</button>
+</form>

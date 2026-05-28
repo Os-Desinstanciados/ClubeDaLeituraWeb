@@ -1,0 +1,45 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Listagem de Revistas";
+}
+
+@model List<ListarRevistasViewModel>
+
+<a class="btn btn-primary mb-3" href="/Revista/Cadastrar">Cadastrar Nova</a>
+
+@if (Model.Count == 0)
+{
+    <p>Nenhuma revista cadastrada.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Edição</th>
+                <th>Ano de Publicação</th>
+                <th>Caixa</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (ListarRevistasViewModel r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.Titulo</td>
+                    <td>@r.NumeroEdicao</td>
+                    <td>@r.AnoPublicacao.ToString("dd/MM/yyyy")</td>
+                    <td>@r.Caixa</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="/Revista/Editar/@r.Id">Editar</a>
+                        <a class="btn btn-danger btn-sm" href="/Revista/Excluir/@r.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
