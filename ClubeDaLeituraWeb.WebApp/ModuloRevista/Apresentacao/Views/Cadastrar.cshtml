@@ -1,0 +1,39 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Cadastro de Revista";
+}
+
+@model CadastrarRevistaViewModel
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input class="form-control" asp-for="Titulo" />
+        <span class="text-danger" asp-validation-for="Titulo"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Número da Edição</label>
+        <input class="form-control" asp-for="NumeroEdicao" type="number" />
+        <span class="text-danger" asp-validation-for="NumeroEdicao"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Ano de Publicação</label>
+        <input class="form-control" asp-for="AnoPublicacao" type="date" />
+        <span class="text-danger" asp-validation-for="AnoPublicacao"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Caixa</label>
+        <select class="form-select" asp-for="CaixaId" asp-items="ViewBag.Caixas">
+            <option value="">Selecione uma caixa</option>
+        </select>
+        <span class="text-danger" asp-validation-for="CaixaId"></span>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <a class="btn btn-secondary" href="/Revista/Listar">Voltar</a>
+    <button class="btn btn-primary" type="submit">Confirmar</button>
+</form>
